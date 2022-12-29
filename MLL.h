@@ -1,72 +1,85 @@
 #ifndef MLL_H_INCLUDED
 #define MLL_H_INCLUDED
+#include <iostream>
 
 #define next(P) (P)->next
 #define info(P) (P)->info
+#define folder(P) (P)->folder
 #define first(L) (L).first
-#define NULL nil
+#define nil NULL
 
-struct infotype
-{
+using namespace std;
+
+// parent
+struct file {
+    string name;
+    string type;
+    double size;
+};
+// child
+struct folder {
+    string name;
+    int totalFile;
+    double size;
 };
 
-typedef struct elmChild *adrChild;
-typedef struct elmParent *adrParent;
+// address define
+typedef struct elmFile *adrFile;
+typedef struct elmFolder *adrFolder;
 
-struct elmChild
-{
-    infotype info;
-    adrChild nextC;
+// element
+struct elmFile {
+    file info;
+    adrFile next;
+    adrFolder folder;
+};
+struct elmFolder {
+    folder info;
+    adrFolder next;
 };
 
-struct elmParent
-{
-    infotype info;
-    adrParent nextP;
-    adrChild nextC;
+// List
+typedef struct fileList {
+    adrFile first;
+};
+typedef struct folderList {
+    adrFolder first;
 };
 
-typedef struct pList
-{
-    adrParent first;
-};
-
-typedef struct cList
-{
-    adrChild first;
-};
-
-// 1.Insert data parent dari depan/belakang (5)
-void insertLastParent(pList &L,adrParent P);
-
-// 2.Show all data parent (5)
-void showPList(pList L);
-
-// 3.Menghapus data parent dan childnya (5)
-
-// 4.Mencari data parent (5)
-void findPElmt(pList &L, infotype info);
-
-// 5.Insert data child (10)
-void insertLastChild(cList &L,adrChild P);
-
-// 6.Menghubungkan data parent ke data child (10)
-void connectParentChild(adrParent pP,adrChild pC);
-
-// 7.Menampilkan seluruh data parent beserta childnya (15)
-void showAll(pList L);
-
-// 8.Mencari data child pada parent tertentu (10)
 
 
-// 9.Menghapus data child pada parent tertentu (15)
-void deleteChild(pList pL);
+// 1)Menambahkan folder baru (5 poin)
+void insertFolder(folderList &L, adrFolder P);
+// 2)Menampilkan data folder X (5 poin)
+void showDataFolder(folderList L, string folderName);
+// 3)Menghapus folder tertentu (10 poin)
+void deleteFolder(fileList &pL,folderList &cL,string folderName);
+// 4)Mencari folder X (5 poin)
+adrFolder findFolder(folderList L, string folderName);
+// 5)Menambahkan file dari folder X (5 poin)
+void insertFileFromFolderX(fileList &L,string folderName);                      //
+// 6)Menghapus file dari folder X (10 poin)
+void deleteFileFromFolderX();                                                   //
+// 7)Menampilkan seluruh file dari folder X (5 poin)
+void showAllFileFromFolderX(fileList L,string folderName);
+// 8)Mencari file Y dari folder X (5 poin)
+adrFile findFileFromFolderX(fileList &L, string fileName, string folderName);   //
+// 9)Membuat relasi antara folder X dan file Y (15 poin)
+void connectFolderFile(string fileName, string folderName);                     //
+// 10)Menghapus relasi antara folder X dan file Y (15 poin)
+void disconnectFolderFile(fileList L,string fileName, string folderName);       //
+// 11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
+void showMostFileInFolder(fileList L);                                          //
+// 12)Mencari nama folder dari file Y (10 poin)
+string findFolderNameFromFileY(fileList L,string fileName);                       //
 
-// 10.Menghitung jumlah data child dari parent tertentu (10)
-
-
-
-
-
-
+//aditional function
+void createFileList(fileList &pL);
+void createFolderList(folderList &cL);
+adrFile newFile(file info);
+adrFolder newFolder(folder info);
+void showMenu();
+int getMenu();
+bool backMenu();
+void runProgram(int programNumber);
 #endif // MLL_H_INCLUDED

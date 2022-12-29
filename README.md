@@ -28,4 +28,4 @@ iii.Fungsionalitas (100 Poin untuk nilai kelompok) :
 9)Membuat relasi antara folder X dan file Y (15 poin)
 10)Menghapus relasi antara folder X dan file Y (15 poin)
 11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
-Mencari nama folder dari file Y (10 poin)
+12)Mencari nama folder dari file Y (10 poin)
