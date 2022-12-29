@@ -65,9 +65,9 @@ void showAllFileFromFolderX(fileList L,string folderName);
 // 8)Mencari file Y dari folder X (5 poin)
 adrFile findFileFromFolderX(fileList &L, string fileName, string folderName);   //
 // 9)Membuat relasi antara folder X dan file Y (15 poin)
-void connectFolderFile(string fileName, string folderName);                     //
+void connectFolderFile(folderList cL,fileList &pL,string fileName, string folderName);                     //
 // 10)Menghapus relasi antara folder X dan file Y (15 poin)
-void disconnectFolderFile(fileList L,string fileName, string folderName);       //
+void disconnectFolderFile(fileList L,string fileName);       //
 // 11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
 void showMostFileInFolder(fileList L);                                          //
 // 12)Mencari nama folder dari file Y (10 poin)
@@ -82,4 +82,6 @@ void showMenu();
 int getMenu();
 bool backMenu();
 void runProgram(int programNumber);
+int inDegreeFolder(fileList L, string folderName);
+adrFile findFile(fileList L, string fileName);
 #endif // MLL_H_INCLUDED
