@@ -67,6 +67,12 @@ adrFolder findFolder(folderList L, string folderName){
     }
     return P;
 };
+
+// 5)Menambahkan file dari folder X (5 poin)
+void insertFileFromFolderX(fileList &L,string folderName){};
+// 6)Menghapus file dari folder X (10 poin)
+void deleteFileFromFolderX(){};
+
 // 7)Menampilkan seluruh file dari folder X (5 poin)
 void showAllFileFromFolderX(fileList L,string folderName){
     adrFile P = first(L);
@@ -86,51 +92,26 @@ void showAllFileFromFolderX(fileList L,string folderName){
     }
 };
 
-void insertFileFromFolderX(fileList &L,string folderName){}; // 5)Menambahkan file dari folder X (5 poin)
-// 5.Insert data child (10)
-/*
-void insertLastChild(cList &cL,adrChild C){
-    adrChild Q = first(cL);
-    if (Q == nil){
-        first(cL) = C;
-    }else {
-        while(nextC(Q) != nil){
-            Q = nextC(Q);
-        }
-        nextC(Q) = C;
-    }
-};
-*/
-void deleteFileFromFolderX();                   // 6)Menghapus file dari folder X (10 poin)
-// 6.Menghubungkan data parent ke data child (10)
-/*
-void connectParentChild(adrParent P,adrChild C){
-    child(P) = C;
-};
-*/
-
-adrFile findFileFromFolderX(fileList &L, string fileName, string folderName);   // 8)Mencari file Y dari folder X (5 poin)
-// adrChild findChild(pList pL, adrParent P){};                                    // 8.Mencari data child pada parent tertentu (10)
-
-
-// void deleteChild(pList pL){};                               // 9.Menghapus data child pada parent tertentu (15)
-// void connectFolderFile(string fileName, string folderName); // 9)Membuat relasi antara folder X dan file Y (15 poin)
-
-// int countChild(pList pL, adrParent P){};                                    // 10.Menghitung jumlah data child dari parent tertentu (10)
-void disconnectFolderFile(fileList L,string fileName, string folderName);   // 10)Menghapus relasi antara folder X dan file Y (15 poin)
-
-
+// 8)Mencari file Y dari folder X (5 poin)
+adrFile findFileFromFolderX(fileList &L, string fileName, string folderName){};
+// 9)Membuat relasi antara folder X dan file Y (15 poin)
+void connectFolderFile(string fileName, string folderName){};
+// 10)Menghapus relasi antara folder X dan file Y (15 poin)
+void disconnectFolderFile(fileList L,string fileName, string folderName){};
 // 11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
-void showMostFileInFolder(fileList L);
+void showMostFileInFolder(fileList L){};
+
 // 12)Mencari nama folder dari file Y (10 poin)
 string findFolderNameFromFileY(fileList L,string fileName){
     adrFile P = first(L);
     while (P != nil && info(P).name != fileName){
         P = next(P);
     }
+
     if (P == nil){
         return "";
     }
+
     return info(P).name;
 };
 
@@ -172,41 +153,6 @@ void showMenu() {
     cout << "| 0. Exit                                       |"<<endl;
     cout << "================================================="<<endl;
 }
-
-void runProgram(int programNumber) {
-    if (programNumber == 1){
-        cout << "=================================================" << endl;
-        cout << "Program 1 : Menambahkan folder baru" << endl;
-        cout << "=================================================" << endl;
-    }else if (programNumber == 2){
-        cout << "Program 2" << endl;
-    }else if (programNumber == 3){
-        cout << "Program 3" << endl;
-    }else if (programNumber == 4){
-        cout << "Program 4" << endl;
-    }else if (programNumber == 5){
-        cout << "Program 5" << endl;
-    }else if (programNumber == 6){
-        cout << "Program 6" << endl;
-    }else if (programNumber == 7){
-        cout << "Program 7" << endl;
-    }else if (programNumber == 8){
-        cout << "Program 8" << endl;
-    }else if (programNumber == 9){
-        cout << "Program 9" << endl;
-    }else if (programNumber == 10){
-        cout << "Program 10" << endl;
-    }else if (programNumber == 11){
-        cout << "Program 11" << endl;
-    }else if (programNumber == 12){
-        cout << "Program 12" << endl;
-    }else if (programNumber == 0){
-        break;
-    }else {
-        continue;
-    }
-}
-
 int getMenu() {
     showMenu();
     int chooseMenu;
@@ -221,3 +167,28 @@ bool backMenu(){
     }
     return false;
 }
+
+
+/*
+                                                                                // 5.Insert data child (10)
+void insertLastChild(cList &cL,adrChild C){
+    adrChild Q = first(cL);
+    if (Q == nil){
+        first(cL) = C;
+    }else {
+        while(nextC(Q) != nil){
+            Q = nextC(Q);
+        }
+        nextC(Q) = C;
+    }
+};
+                                                                                // 6.Menghubungkan data parent ke data child (10)
+void connectParentChild(adrParent P,adrChild C){
+    child(P) = C;
+};
+
+adrChild findChild(pList pL, adrParent P){};                                    // 8.Mencari data child pada parent tertentu (10)
+// void deleteChild(pList pL){};                                                // 9.Menghapus data child pada parent tertentu (15)
+// int countChild(pList pL, adrParent P){};                                    // 10.Menghitung jumlah data child dari parent tertentu (10)
+
+*/
