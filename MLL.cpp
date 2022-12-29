@@ -72,6 +72,8 @@ adrFolder findFolder(folderList L, string folderName){
 void insertFileFromFolderX(fileList &L,string folderName){};
 // 6)Menghapus file dari folder X (10 poin)
 void deleteFileFromFolderX(){};
+// 8)Mencari file Y dari folder X (5 poin)
+adrFile findFileFromFolderX(fileList &L, string fileName, string folderName){};
 
 // 7)Menampilkan seluruh file dari folder X (5 poin)
 void showAllFileFromFolderX(fileList L,string folderName){
@@ -91,27 +93,61 @@ void showAllFileFromFolderX(fileList L,string folderName){
         }
     }
 };
-
-// 8)Mencari file Y dari folder X (5 poin)
-adrFile findFileFromFolderX(fileList &L, string fileName, string folderName){};
 // 9)Membuat relasi antara folder X dan file Y (15 poin)
-void connectFolderFile(string fileName, string folderName){};
+void connectFolderFile(folderList cL,fileList &pL,string fileName, string folderName){
+    adrFolder P = findFolder(cL,folderName);
+    adrFile Q = findFile(pL,fileName);
+    if (P != nil && Q != nil){
+        folder(Q) = P;
+    }
+};
 // 10)Menghapus relasi antara folder X dan file Y (15 poin)
-void disconnectFolderFile(fileList L,string fileName, string folderName){};
+void disconnectFolderFile(fileList L,string fileName){
+    adrFile P = first(L);
+    while(P != nil && info(P).name != fileName){
+        P = next(P);
+    }
+    if (P == nil){
+        cout << "disconnectFolderFile : File tidak ditemukan" << endl;
+    }else {
+        folder(P) = nil;
+    }
+};
 // 11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
-void showMostFileInFolder(fileList L){};
-
+void showMostFileInFolder(fileList pL,folderList cL){
+    // find mostFileInFolder
+    int mostDegree = inDegreeFolder(pL,info(first(cL)).name);
+    string nameMostDegree = info(first(cL)).name;
+    int countDegree = 0;
+    adrFolder P = next(first(cL));
+    while(P != nil){
+        countDegree = inDegreeFolder(pL,info(P).name);
+        if (countDegree > mostDegree){
+            mostDegree = countDegree;
+            nameMostDegree = info(P).name;
+        }
+        P = next(P);
+    }
+    // show mostFileInFolder
+    adrFile Q = first(pL);
+    while(Q != nil){
+        if (info(Q).name == nameMostDegree){
+            cout << "===========================" << endl;
+            cout << "File Name : "<< info(Q).name << endl;
+            cout << "File Type : "<< info(Q).type << endl;
+            cout << "File Size : "<< info(Q).size << endl;
+            cout << "===========================" << endl;
+        }
+        Q = next(Q);
+    }
+};
 // 12)Mencari nama folder dari file Y (10 poin)
 string findFolderNameFromFileY(fileList L,string fileName){
     adrFile P = first(L);
     while (P != nil && info(P).name != fileName){
         P = next(P);
     }
-
-    if (P == nil){
-        return "";
-    }
-
+    if (P == nil) return "File tidak terhubung ke Folder";
     return info(P).name;
 };
 
@@ -167,8 +203,24 @@ bool backMenu(){
     }
     return false;
 }
-
-
+int inDegreeFolder(fileList L, string folderName) {
+    adrFile P = first(L);
+    int count = 0;
+    while (P != nil){
+        if (info(folder(P)).name == folderName){
+            count++;
+        }
+        P = next(P);
+    }
+    return count;
+}
+adrFile findFile(fileList L, string fileName){
+    adrFile P = first(L);
+    while(P != nil && info(P).name != fileName){
+        P = next(P);
+    }
+    return P;
+};
 /*
                                                                                 // 5.Insert data child (10)
 void insertLastChild(cList &cL,adrChild C){
@@ -182,13 +234,5 @@ void insertLastChild(cList &cL,adrChild C){
         nextC(Q) = C;
     }
 };
-                                                                                // 6.Menghubungkan data parent ke data child (10)
-void connectParentChild(adrParent P,adrChild C){
-    child(P) = C;
-};
-
 adrChild findChild(pList pL, adrParent P){};                                    // 8.Mencari data child pada parent tertentu (10)
-// void deleteChild(pList pL){};                                                // 9.Menghapus data child pada parent tertentu (15)
-// int countChild(pList pL, adrParent P){};                                    // 10.Menghitung jumlah data child dari parent tertentu (10)
-
 */
