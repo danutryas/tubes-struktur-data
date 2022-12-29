@@ -15,3 +15,17 @@ iii.Fungsionalitas (100 Poin untuk nilai kelompok) :
     9. Menghapus data child pada parent tertentu (15)
     10. Menghitung jumlah data child dari parent tertentu (10)
     11. Main program (10)
+
+- Rancanglah multi-linked list yang memodelkan folder dan file  dalam suatu file system sederhana. Sebuah folder dapat mempunyai banyak file. Program Anda harus mengimplementasikan daftar dan semua fitur yang tercantum di bawah ini:
+1)Menambahkan folder baru (5 poin)
+2)Menampilkan data folder X (5 poin)
+3)Menghapus folder tertentu (10 poin)
+4)Mencari folder X (5 poin)
+5)Menambahkan file dari folder X (5 poin)
+6)Menghapus file dari folder X (10 poin)
+7)Menampilkan seluruh file dari folder X (5 poin)
+8)Mencari file Y dari folder X (5 poin)
+9)Membuat relasi antara folder X dan file Y (15 poin)
+10)Menghapus relasi antara folder X dan file Y (15 poin)
+11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
+Mencari nama folder dari file Y (10 poin)
