@@ -76,7 +76,19 @@ adrFolder findFolder(folderList L, string folderName){
 };
 
 // 5)Menambahkan file dari folder X (5 poin)
-void insertFileFromFolderX(fileList &L,string folderName){};
+// void insertFileFromFolderX(fileList &L,string folderName){};
+void insertFile(fileList &L, adrFile P){
+    adrFile Q = first(L);
+    if (Q == nil){
+        first(L) = P;
+    }else {
+        while(next(Q) != nil){
+            Q = next(Q);
+        }
+        next(Q) = P;
+    }
+};
+
 // 6)Menghapus file dari folder X (10 poin)
 void deleteFileFromFolderX(){};
 // 8)Mencari file Y dari folder X (5 poin)
@@ -109,15 +121,11 @@ void connectFolderFile(folderList cL,fileList &pL,string fileName, string folder
     }
 };
 // 10)Menghapus relasi antara folder X dan file Y (15 poin)
-void disconnectFolderFile(fileList L,string fileName){
-    adrFile P = first(L);
-    while(P != nil && info(P).name != fileName){
-        P = next(P);
-    }
-    if (P == nil){
-        cout << "disconnectFolderFile : File tidak ditemukan" << endl;
-    }else {
-        folder(P) = nil;
+void disconnectFolderFile(folderList cL,fileList &pL,string fileName,string folderName){
+    adrFolder P = findFolder(cL,folderName);
+    adrFile Q = findFile(pL,fileName);
+    if (P != nil && Q != nil){
+        folder(Q) = nil;
     }
 };
 // 11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
@@ -137,8 +145,9 @@ void showMostFileInFolder(fileList pL,folderList cL){
     }
     // show mostFileInFolder
     adrFile Q = first(pL);
+    cout << "Folder yang memiliki file terbanyak: " << nameMostDegree << endl;
     while(Q != nil){
-        if (info(Q).name == nameMostDegree){
+        if (info(folder(Q)).name == nameMostDegree){
             cout << "===========================" << endl;
             cout << "File Name : "<< info(Q).name << endl;
             cout << "File Type : "<< info(Q).type << endl;
@@ -155,7 +164,7 @@ string findFolderNameFromFileY(fileList L,string fileName){
         P = next(P);
     }
     if (P == nil) return "File tidak terhubung ke Folder";
-    return info(P).name;
+    return info(folder(P)).name;
 };
 
 // additional Function
@@ -246,18 +255,37 @@ void showFolderList(folderList L) {
     }
     cout << "=========================="<<endl;
 }
-/*
-                                                                                // 5.Insert data child (10)
-void insertLastChild(cList &cL,adrChild C){
-    adrChild Q = first(cL);
-    if (Q == nil){
-        first(cL) = C;
+void showFileList(fileList L) {
+    adrFile P = first(L);
+    cout << "=========================="<<endl;
+    if (P == nil) {
+        cout << "List File Kosong!!!"<<endl;
     }else {
-        while(nextC(Q) != nil){
-            Q = nextC(Q);
+        while (P != nil){
+            cout <<"=> File Name: "<< info(P).name << endl;
+            P = next(P);
         }
-        nextC(Q) = C;
     }
-};
+    cout << "=========================="<<endl;
+}
+void showConnection(folderList cL,fileList pL){
+    adrFolder cP = first(cL);
+    adrFile pP;
+    string folderName = "";
+    while(cP != nil){
+        folderName = info(cP).name;
+        cout << "Folder " << folderName << ": ";
+        pP = first(pL);
+        while(pP != nil){
+            if (info(folder(pP)).name == folderName){
+                cout << info(pP).name << " - ";
+            }
+            pP = next(pP);
+        }
+        cout << endl;
+        cP = next(cP);
+    }
+}
+/*
 adrChild findChild(pList pL, adrParent P){};                                    // 8.Mencari data child pada parent tertentu (10)
 */
