@@ -57,7 +57,8 @@ void deleteFolder(fileList &pL,folderList &cL,string folderName);
 // 4)Mencari folder X (5 poin)
 adrFolder findFolder(folderList L, string folderName);
 // 5)Menambahkan file dari folder X (5 poin)
-void insertFileFromFolderX(fileList &L,string folderName);                      //
+// void insertFileFromFolderX(fileList &L,string folderName);                      //
+void insertFile(fileList &L, adrFile P);
 // 6)Menghapus file dari folder X (10 poin)
 void deleteFileFromFolderX();                                                   //
 // 7)Menampilkan seluruh file dari folder X (5 poin)
@@ -65,11 +66,11 @@ void showAllFileFromFolderX(fileList L,string folderName);
 // 8)Mencari file Y dari folder X (5 poin)
 adrFile findFileFromFolderX(fileList &L, string fileName, string folderName);   //
 // 9)Membuat relasi antara folder X dan file Y (15 poin)
-void connectFolderFile(string fileName, string folderName);                     //
+void connectFolderFile(folderList cL,fileList &pL,string fileName, string folderName);                     //
 // 10)Menghapus relasi antara folder X dan file Y (15 poin)
-void disconnectFolderFile(fileList L,string fileName, string folderName);       //
+void disconnectFolderFile(folderList cL,fileList &pL,string fileName,string folderName);       //
 // 11)Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut(10 poin)
-void showMostFileInFolder(fileList L);                                          //
+void showMostFileInFolder(fileList pL,folderList cL);                                          //
 // 12)Mencari nama folder dari file Y (10 poin)
 string findFolderNameFromFileY(fileList L,string fileName);                       //
 
@@ -82,4 +83,10 @@ void showMenu();
 int getMenu();
 bool backMenu();
 void runProgram(int programNumber);
+int inDegreeFolder(fileList L, string folderName);
+adrFile findFile(fileList L, string fileName);
+void clearConsole();
+void showFolderList(folderList L);
+void showFileList(fileList L);
+void showConnection(folderList cL,fileList pL);
 #endif // MLL_H_INCLUDED
