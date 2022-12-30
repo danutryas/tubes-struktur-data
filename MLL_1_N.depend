@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1672361013 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
+1672370236 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
 	"MLL.h"
 	<iostream>
 
-1672360116 /home/nasiuduk/Documents/project/strukdat/MLL.h
+1672370223 /home/nasiuduk/Documents/project/strukdat/MLL.h
 	<iostream>
 
-1672361053 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
+1672370131 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
 	"MLL.h"
 	<iostream>
 	<stdlib.h>
