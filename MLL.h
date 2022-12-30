@@ -84,4 +84,6 @@ bool backMenu();
 void runProgram(int programNumber);
 int inDegreeFolder(fileList L, string folderName);
 adrFile findFile(fileList L, string fileName);
+void clearConsole();
+void showFolderList(folderList L);
 #endif // MLL_H_INCLUDED

@@ -1,5 +1,6 @@
 #include "MLL.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -40,23 +41,29 @@ void deleteFolder(fileList &pL,folderList &cL,string folderName){
     adrFolder P = first(cL);
     adrFile Q = first(pL);
     adrFolder temp;
-    while(Q != nil ){
+    while( Q != nil ){
         if (info(folder(Q)).name == folderName){
             // delete all file
             // disconnectFolderFile(pL,info(Q).name,folderName);
         }
         Q = next(Q);
-    }if (P == nil) {
+    }
+    if (P == nil) {
         cout << "Tidak terdapat Folder"<< endl;
     }else if (next(P) == nil && info(P).name == folderName){
         first(cL) = nil;
     }else {
-        while (next(P) != nil && info(next(P)).name != folderName) {
-            P = next(P);
+        if (info(P).name == folderName){
+            first(cL) = next(P);
+            next(P) = nil;
+        }else {
+            while (next(P) != nil && info(next(P)).name != folderName) {
+                P = next(P);
+            }
+            temp = next(P);
+            next(P) = next(temp);
+            next(temp) = nil;
         }
-        temp = next(P);
-        next(P) = next(temp);
-        next(temp) = nil;
     }
 };
 // 4)Mencari folder X (5 poin)
@@ -172,6 +179,7 @@ adrFolder newFolder(folder info){
     return C;
 }
 void showMenu() {
+    clearConsole();
     cout << "====================   MENU   ==================="<<endl;
     cout << "================================================="<<endl;
     cout << "| 1. Menambahkan folder baru                    |"<<endl;
@@ -193,6 +201,7 @@ int getMenu() {
     showMenu();
     int chooseMenu;
     cout << "Silhkan pilih menu(1-11): ";cin >> chooseMenu;
+    clearConsole();
     return chooseMenu;
 }
 bool backMenu(){
@@ -221,6 +230,22 @@ adrFile findFile(fileList L, string fileName){
     }
     return P;
 };
+void clearConsole(){
+    if (system("CLS")) system("clear");
+};
+void showFolderList(folderList L) {
+    adrFolder P = first(L);
+    cout << "=========================="<<endl;
+    if (P == nil) {
+        cout << "List Folder Kosong!!!"<<endl;
+    }else {
+        while (P != nil){
+            cout <<"=> Folder Name: "<< info(P).name << endl;
+            P = next(P);
+        }
+    }
+    cout << "=========================="<<endl;
+}
 /*
                                                                                 // 5.Insert data child (10)
 void insertLastChild(cList &cL,adrChild C){
