@@ -15,6 +15,52 @@ int main()
     folder folder;file file;
     string folderName;string fileName;
 
+    // for testing ===
+    /*
+    folder.name = "folderA";
+    folder.size = 0;
+    folder.totalFile = 0;
+    cP = newFolder(folder);
+    insertFolder(ListFolder,cP);
+    folder.name = "folderB";
+    folder.size = 0;
+    folder.totalFile = 0;
+    cP = newFolder(folder);
+    insertFolder(ListFolder,cP);
+    folder.name = "folderC";
+    folder.size = 0;
+    folder.totalFile = 0;
+    cP = newFolder(folder);
+    insertFolder(ListFolder,cP);
+
+    file.name = "fileA";
+    file.type= "png";
+    file.size = 0;
+    pP = newFile(file);
+    insertFile(ListFile,pP);
+    file.name = "fileB";
+    file.type= "pdf";
+    file.size = 0;
+    pP = newFile(file);
+    insertFile(ListFile,pP);
+    file.name = "fileC";
+    file.type= "jpg";
+    file.size = 0;
+    pP = newFile(file);
+    insertFile(ListFile,pP);
+    file.name = "fileD";
+    file.type= "jpg";
+    file.size = 0;
+    pP = newFile(file);
+    insertFile(ListFile,pP);
+
+    connectFolderFile(ListFolder,ListFile,"fileA","folderA");
+    connectFolderFile(ListFolder,ListFile,"fileB","folderB");
+    connectFolderFile(ListFolder,ListFile,"fileC","folderC");
+    connectFolderFile(ListFolder,ListFile,"fileD","folderA");
+    */
+    // =====
+
     bool printMenu = true;
     int choosenMenu;
 

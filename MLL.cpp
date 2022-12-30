@@ -271,20 +271,24 @@ void showFileList(fileList L) {
 void showConnection(folderList cL,fileList pL){
     adrFolder cP = first(cL);
     adrFile pP;
-    string folderName = "";
+    string folderName;
+
     while(cP != nil){
         folderName = info(cP).name;
         cout << "Folder " << folderName << ": ";
         pP = first(pL);
         while(pP != nil){
-            if (info(folder(pP)).name == folderName){
-                cout << info(pP).name << " - ";
+            if (folder(pP) != nil){
+                if (info(folder(pP)).name == folderName){
+                    cout << info(pP).name << " - ";
+                }
             }
             pP = next(pP);
         }
         cout << endl;
         cP = next(cP);
     }
+
 }
 /*
 adrChild findChild(pList pL, adrParent P){};                                    // 8.Mencari data child pada parent tertentu (10)
