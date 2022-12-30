@@ -90,9 +90,15 @@ void insertFile(fileList &L, adrFile P){
 };
 
 // 6)Menghapus file dari folder X (10 poin)
-void deleteFileFromFolderX(){};
+void deleteFileFromFolderX()
+{
+
+};
 // 8)Mencari file Y dari folder X (5 poin)
-adrFile findFileFromFolderX(fileList &L, string fileName, string folderName){};
+adrFile findFileFromFolderX(fileList &L, string fileName, string folderName)
+{
+    
+};
 
 // 7)Menampilkan seluruh file dari folder X (5 poin)
 void showAllFileFromFolderX(fileList L,string folderName){
