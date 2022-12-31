@@ -40,19 +40,24 @@ void showDataFolder(folderList L, string folderName){
 void deleteFolder(fileList &pL,folderList &cL,string folderName){
     adrFolder P = first(cL);
     adrFile Q = first(pL);
-    adrFolder temp;
+
     while( Q != nil ){
-        if (info(folder(Q)).name == folderName){
-            // delete all file
-            // disconnectFolderFile(pL,info(Q).name,folderName);
+        if (folder(Q) != nil) {
+            if (info(folder(Q)).name == folderName){
+                deleteFileFromFolderX(pL,cL,Q,folderName);
+            }
         }
         Q = next(Q);
     }
+
     if (P == nil) {
         cout << "Tidak terdapat Folder"<< endl;
-    }else if (next(P) == nil && info(P).name == folderName){
-        first(cL) = nil;
+    }else if (next(P) == nil){
+        if (info(P).name == folderName){
+            first(cL) = nil;
+        }
     }else {
+        adrFolder temp;
         if (info(P).name == folderName){
             first(cL) = next(P);
             next(P) = nil;
@@ -90,7 +95,22 @@ void insertFile(fileList &L, adrFile P){
 };
 
 // 6)Menghapus file dari folder X (10 poin)
-void deleteFileFromFolderX(){};
+void deleteFileFromFolderX(fileList &pL,folderList cL, adrFile P, string folderName){
+    disconnectFolderFile(cL,pL,info(P).name,folderName);
+    adrFile Q = first(pL);
+    if (P == Q){
+        // delete First
+    } else {
+        while(next(Q) != nil && next(Q) != P){
+            Q = next(Q);
+        }
+        if (next(P) != nil){
+            next(Q) = next(P);
+            next(P) = nil;
+        }
+    }
+
+};
 // 8)Mencari file Y dari folder X (5 poin)
 adrFile findFileFromFolderX(fileList &L, string fileName, string folderName){};
 
@@ -192,6 +212,23 @@ void showMenu() {
     cout << "====================   MENU   ==================="<<endl;
     cout << "================================================="<<endl;
     cout << "| 1. Menambahkan folder baru                    |"<<endl;
+    cout << "| 2. Menambahkan file baru                      |"<<endl;
+    cout << "| 3. Menghapus folder tertentu                  |"<<endl;
+    cout << "| 4. Menghapus file tertentu                    |"<<endl;
+    cout << "| 5. Membuat relasi antara folder X             |"<<endl;
+    cout << "| 6. Menghapus relasi antara folder X dan file Y|"<<endl;
+    cout << "| 7. Menampilkan seluruh Folder                 |"<<endl;
+    cout << "| 8. Menampilkan seluruh File                   |"<<endl;
+    cout << "| 9. Menampilkan seluruh File dari Folder X     |"<<endl;
+    cout << "|10. Mencari nama Folder dari File Y            |"<<endl;
+    cout << "|11. Menampilkan Folder dengan file terbanyak   |"<<endl;
+    cout << "|12. Menampilkan Data folder X                  |"<<endl;
+    cout << "| 0. Exit                                       |"<<endl;
+    cout << "================================================="<<endl;
+    /*
+    cout << "====================   MENU   ==================="<<endl;
+    cout << "================================================="<<endl;
+    cout << "| 1. Menambahkan folder baru                    |"<<endl;
     cout << "| 2. Menampilkan data folder X                  |"<<endl;
     cout << "| 3. Menghapus folder tertentu                  |"<<endl;
     cout << "| 4. Mencari folder X                           |"<<endl;
@@ -205,11 +242,12 @@ void showMenu() {
     cout << "|12. Mencari nama folder dari file Y            |"<<endl;
     cout << "| 0. Exit                                       |"<<endl;
     cout << "================================================="<<endl;
+    */
 }
 int getMenu() {
     showMenu();
     int chooseMenu;
-    cout << "Silhkan pilih menu(1-11): ";cin >> chooseMenu;
+    cout << "Silhkan pilih menu(0-12): ";cin >> chooseMenu;
     clearConsole();
     return chooseMenu;
 }

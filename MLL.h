@@ -60,7 +60,7 @@ adrFolder findFolder(folderList L, string folderName);
 // void insertFileFromFolderX(fileList &L,string folderName);                      //
 void insertFile(fileList &L, adrFile P);
 // 6)Menghapus file dari folder X (10 poin)
-void deleteFileFromFolderX();                                                   //
+void deleteFileFromFolderX(fileList &pL,folderList cL, adrFile P, string folderName);                                                   //
 // 7)Menampilkan seluruh file dari folder X (5 poin)
 void showAllFileFromFolderX(fileList L,string folderName);
 // 8)Mencari file Y dari folder X (5 poin)
