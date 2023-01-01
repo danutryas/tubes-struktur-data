@@ -1,4 +1,6 @@
 #include "MLL.h"
+#include "file.h"
+#include "folder.h"
 #include <iostream>
 using namespace std;
 
@@ -73,9 +75,9 @@ int main()
     connectFolderFile(ListFolder,ListFile,"fileF","folderC");
 
     // =====
-
     bool printMenu = true;
     int choosenMenu;
+
     while (printMenu){
         choosenMenu= getMenu();
         if (choosenMenu == 1){
@@ -122,13 +124,15 @@ int main()
                 deleteFolder(ListFile,ListFolder,folderName);
             }
         }
-        // unfinished
         else if (choosenMenu == 4){
             clearConsole();
             cout << "=================================================" << endl;
             cout << "Program 4 : Menghapus file tertentu" << endl;
             cout << "=================================================" << endl;
             showFileList(ListFile);
+            cout << "Masukkan nama folder yang ingin dihapus: ";cin >> fileName;
+            pP = findFile(ListFile,fileName);
+            deleteFile(ListFile,pP);
         }
         else if (choosenMenu == 5){
             clearConsole();
@@ -175,7 +179,7 @@ int main()
             cout << "Program 9 : Menampilkan seluruh file dari folder X" << endl;
             cout << "=================================================" << endl;
             cout << "Masukkan nama folder yang ingin ditampilkan: ";cin >> folderName;
-            showAllFileFromFolderX(ListFile,folderName);
+            showAllFileFromFolderX(ListFile,ListFolder,folderName);
         }
         else if (choosenMenu == 10){
             clearConsole();
@@ -184,8 +188,8 @@ int main()
             cout << "=================================================" << endl;
             showFileList(ListFile);
             cout << "Masukkan file yang ingin dicari nama foldernya: ";cin >> fileName;
-            folderName = findFolderNameFromFileY(ListFile,fileName);
-            cout << "Nama folder dari file "<< fileName << ": "<< folderName << endl;
+            // folderName = findFolderNameFromFileY(ListFile,fileName);
+            findFolderNameFromFileY(ListFile,fileName);
         }
         else if (choosenMenu == 11){
             clearConsole();
@@ -213,6 +217,7 @@ int main()
         }
         printMenu = backMenu();
     }
+
     /*
     while (printMenu){
         choosenMenu= getMenu();
@@ -293,7 +298,7 @@ int main()
             cout << "Program 7 : Menampilkan seluruh file dari folder X" << endl;
             cout << "=================================================" << endl;
             cout << "Masukkan nama folder yang ingin ditampilkan: ";cin >> folderName;
-            showAllFileFromFolderX(ListFile,folderName);
+            showAllFileFromFolderX(ListFile,ListFolder,folderName);
         }
         // unfinished
         else if (choosenMenu == 8){
@@ -328,7 +333,7 @@ int main()
         else if (choosenMenu == 11){
             clearConsole();
             cout << "=================================================" << endl;
-            cout << "Program 11 : Menampilkan folder yang memiliki jumlah file yang paling banyak dan menampilkan file tersebut" << endl;
+            cout << "Program 11 : Menampilkan Folder dengan file terbanyak" << endl;
             cout << "=================================================" << endl;
             showMostFileInFolder(ListFile,ListFolder);
         }
@@ -339,8 +344,8 @@ int main()
             cout << "=================================================" << endl;
             showFileList(ListFile);
             cout << "Masukkan file yang ingin dicari nama foldernya: ";cin >> fileName;
-            folderName = findFolderNameFromFileY(ListFile,fileName);
-            cout << "Nama folder dari file "<< fileName << ": "<< folderName << endl;
+            // folderName = findFolderNameFromFileY(ListFile,fileName);
+            findFolderNameFromFileY(ListFile,fileName);
         }else if (choosenMenu == 0){
             break;
         }else {

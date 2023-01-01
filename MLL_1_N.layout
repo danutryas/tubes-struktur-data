@@ -2,72 +2,67 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="folder.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MLL.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="804" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="MLL.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5705" topLine="25" />
+			<Cursor1 position="7612" topLine="55" />
 		</Cursor>
 		<Folding>
 			<Collapse line="8" />
 			<Collapse line="20" />
+			<Collapse line="33" />
 			<Collapse line="40" />
-			<Collapse line="68" />
-			<Collapse line="77" />
-			<Collapse line="89" />
-			<Collapse line="106" />
-			<Collapse line="111" />
-			<Collapse line="116" />
-			<Collapse line="146" />
+			<Collapse line="49" />
+			<Collapse line="61" />
+			<Collapse line="76" />
+			<Collapse line="84" />
+			<Collapse line="103" />
+			<Collapse line="118" />
+			<Collapse line="133" />
 			<Collapse line="154" />
-			<Collapse line="162" />
-			<Collapse line="170" />
-			<Collapse line="179" />
-			<Collapse line="192" />
-			<Collapse line="229" />
-			<Collapse line="236" />
-			<Collapse line="239" />
-			<Collapse line="244" />
-			<Collapse line="255" />
-			<Collapse line="258" />
-			<Collapse line="271" />
 		</Folding>
 	</File>
-	<File name="file.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="folder.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="223" topLine="4" />
+			<Cursor1 position="401" topLine="7" />
 		</Cursor>
 	</File>
-	<File name="folder.cpp" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="185" topLine="0" />
+			<Cursor1 position="1987" topLine="78" />
 		</Cursor>
 	</File>
 	<File name="file.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="547" topLine="20" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1512" topLine="41" />
+			<Cursor1 position="116" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="80" />
-			<Collapse line="117" />
-			<Collapse line="125" />
-			<Collapse line="164" />
-			<Collapse line="179" />
-			<Collapse line="189" />
-			<Collapse line="196" />
+			<Collapse line="5" />
+			<Collapse line="8" />
+			<Collapse line="21" />
+			<Collapse line="30" />
+			<Collapse line="47" />
+			<Collapse line="52" />
+			<Collapse line="57" />
+			<Collapse line="66" />
+		</Folding>
+	</File>
+	<File name="folder.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="726" topLine="10" />
+		</Cursor>
+		<Folding>
+			<Collapse line="4" />
+			<Collapse line="7" />
 		</Folding>
 	</File>
 	<File name="MLL.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1381" topLine="0" />
+			<Cursor1 position="1275" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="file.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="448" topLine="17" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

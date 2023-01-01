@@ -1,15 +1,21 @@
 # depslib dependency file v1.0
-1672474709 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
+1672575116 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
 	"MLL.h"
+	"file.h"
+	"folder.h"
 	<iostream>
 
-1672474545 /home/nasiuduk/Documents/project/strukdat/MLL.h
+1672575199 /home/nasiuduk/Documents/project/strukdat/MLL.h
 	<iostream>
+	"file.h"
+	"folder.h"
 
-1672475401 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
-	"MLL.h"
+1672574727 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
 	<iostream>
 	<stdlib.h>
+	"MLL.h"
+	"file.h"
+	"folder.h"
 
 1672490772 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/main.cpp
 	"MLL.h"
@@ -22,4 +28,22 @@
 	"MLL.h"
 	<iostream>
 	<stdlib.h>
+
+1672570145 source:/home/nasiuduk/Documents/project/strukdat/folder.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
+1672575202 /home/nasiuduk/Documents/project/strukdat/file.h
+	"folder.h"
+	<iostream>
+
+1672569989 /home/nasiuduk/Documents/project/strukdat/folder.h
+	<iostream>
+	"file.h"
+
+1672575214 source:/home/nasiuduk/Documents/project/strukdat/file.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
 
