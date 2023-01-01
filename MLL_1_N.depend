@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1672575116 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
+1672579149 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
 	"MLL.h"
 	"file.h"
 	"folder.h"
@@ -10,7 +10,7 @@
 	"file.h"
 	"folder.h"
 
-1672574727 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
+1672579093 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
 	<iostream>
 	<stdlib.h>
 	"MLL.h"
@@ -29,7 +29,7 @@
 	<iostream>
 	<stdlib.h>
 
-1672570145 source:/home/nasiuduk/Documents/project/strukdat/folder.cpp
+1672578671 source:/home/nasiuduk/Documents/project/strukdat/folder.cpp
 	"MLL.h"
 	"file.h"
 	"folder.h"
