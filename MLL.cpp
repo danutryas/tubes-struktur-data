@@ -1,4 +1,5 @@
-#include "MLL.h"
+#include "file.h"
+#include "folder.h"
 #include <iostream>
 #include <stdlib.h>
 
@@ -38,17 +39,10 @@ void showDataFolder(folderList L, string folderName){
 };
 // 3)Menghapus folder tertentu (10 poin)
 void deleteFolder(fileList &pL,folderList &cL,string folderName){
+    deleteFileFromFolderX(pL,cL,folderName);
+
     adrFolder P = first(cL);
     adrFile Q = first(pL);
-
-    while( Q != nil ){
-        if (folder(Q) != nil) {
-            if (info(folder(Q)).name == folderName){
-                deleteFileFromFolderX(pL,cL,Q,folderName);
-            }
-        }
-        Q = next(Q);
-    }
 
     if (P == nil) {
         cout << "Tidak terdapat Folder"<< endl;
@@ -80,37 +74,54 @@ adrFolder findFolder(folderList L, string folderName){
     return P;
 };
 
-// 5)Menambahkan file dari folder X (5 poin)
-// void insertFileFromFolderX(fileList &L,string folderName){};
-void insertFile(fileList &L, adrFile P){
-    adrFile Q = first(L);
-    if (Q == nil){
-        first(L) = P;
-    }else {
-        while(next(Q) != nil){
-            Q = next(Q);
-        }
-        next(Q) = P;
-    }
-};
-
 // 6)Menghapus file dari folder X (10 poin)
-void deleteFileFromFolderX(fileList &pL,folderList cL, adrFile P, string folderName){
-    disconnectFolderFile(cL,pL,info(P).name,folderName);
-    adrFile Q = first(pL);
-    if (P == Q){
-        // delete First
-    } else {
-        while(next(Q) != nil && next(Q) != P){
+void deleteFileFromFolderX(fileList &pL,folderList cL, string folderName){
+    adrFolder cP = findFolder(cL,folderName);
+    adrFile pP = first(pL);
+
+    while (pP != nil){
+        if (folder(pP) == cP){
+            disconnectFolderFile(cL,pL,info(pP).name,folderName);
+            deleteFile(pL,pP);
+        }
+        pP = next(pP);
+    }
+};
+void deleteFile(fileList &L, adrFile P){
+    if (P = first(L)){
+        deleteFirstFile(L);
+    }else {
+        adrFile Q = first(L);
+        adrFile K = first(L);
+        while (next(Q) != nil){
+            K = Q;
             Q = next(Q);
         }
-        if (next(P) != nil){
-            next(Q) = next(P);
-            next(P) = nil;
+        if (next(Q) == nil){
+            deleteLastFile(L);
+        }else {
+            deleteAfterFile(K);
         }
     }
+}
+void deleteAfterFile(adrFile P){
+    adrFile Q = next(P);
+    next(P) = next(Q);
+    next(Q) = nil;
+}
+void deleteFirstFile(fileList &L){
+    adrFile P = first(L);
+    first(L) = next(P);
+    next(P) = nil;
+}
+void deleteLastFile(fileList &L) {
+    adrFile P = first(L);
+    while(next(next(P)) = nil){
+        P = next(P);
+    }
+    next(P) = nil;
+}
 
-};
 // 8)Mencari file Y dari folder X (5 poin)
 adrFile findFileFromFolderX(fileList &L, string fileName, string folderName){};
 
@@ -177,36 +188,8 @@ void showMostFileInFolder(fileList pL,folderList cL){
         Q = next(Q);
     }
 };
-// 12)Mencari nama folder dari file Y (10 poin)
-string findFolderNameFromFileY(fileList L,string fileName){
-    adrFile P = first(L);
-    while (P != nil && info(P).name != fileName){
-        P = next(P);
-    }
-    if (P == nil) return "File tidak terhubung ke Folder";
-    return info(folder(P)).name;
-};
 
 // additional Function
-void createFileList(fileList &pL){
-    first(pL) = nil;
-};
-void createFolderList(folderList &cL){
-    first(cL) = nil;
-};
-adrFile newFile(file info){
-    adrFile P = new elmFile;
-    info(P) = info;
-    folder(P) = nil;
-    next(P) = nil;
-    return P;
-};
-adrFolder newFolder(folder info){
-    adrFolder C = new elmFolder;
-    info(C) = info;
-    next(C) = nil;
-    return C;
-}
 void showMenu() {
     clearConsole();
     cout << "====================   MENU   ==================="<<endl;
@@ -270,13 +253,6 @@ int inDegreeFolder(fileList L, string folderName) {
     }
     return count;
 }
-adrFile findFile(fileList L, string fileName){
-    adrFile P = first(L);
-    while(P != nil && info(P).name != fileName){
-        P = next(P);
-    }
-    return P;
-};
 void clearConsole(){
     if (system("CLS")) system("clear");
 };
@@ -288,19 +264,6 @@ void showFolderList(folderList L) {
     }else {
         while (P != nil){
             cout <<"=> Folder Name: "<< info(P).name << endl;
-            P = next(P);
-        }
-    }
-    cout << "=========================="<<endl;
-}
-void showFileList(fileList L) {
-    adrFile P = first(L);
-    cout << "=========================="<<endl;
-    if (P == nil) {
-        cout << "List File Kosong!!!"<<endl;
-    }else {
-        while (P != nil){
-            cout <<"=> File Name: "<< info(P).name << endl;
             P = next(P);
         }
     }

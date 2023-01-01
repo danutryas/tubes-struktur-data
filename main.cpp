@@ -53,11 +53,24 @@ int main()
     file.size = 0;
     pP = newFile(file);
     insertFile(ListFile,pP);
+    file.name = "fileE";
+    file.type= "jpg";
+    file.size = 0;
+    pP = newFile(file);
+    insertFile(ListFile,pP);
+    file.name = "fileF";
+    file.type= "jpg";
+    file.size = 0;
+    pP = newFile(file);
+    insertFile(ListFile,pP);
+
 
     connectFolderFile(ListFolder,ListFile,"fileA","folderA");
     connectFolderFile(ListFolder,ListFile,"fileB","folderB");
-    connectFolderFile(ListFolder,ListFile,"fileC","folderC");
-    connectFolderFile(ListFolder,ListFile,"fileD","folderA");
+    connectFolderFile(ListFolder,ListFile,"fileC","folderA");
+    connectFolderFile(ListFolder,ListFile,"fileD","folderC");
+    connectFolderFile(ListFolder,ListFile,"fileE","folderA");
+    connectFolderFile(ListFolder,ListFile,"fileF","folderC");
 
     // =====
 
