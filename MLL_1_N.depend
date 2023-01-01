@@ -1,13 +1,49 @@
 # depslib dependency file v1.0
-1672370236 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
+1672575116 source:/home/nasiuduk/Documents/project/strukdat/main.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+	<iostream>
+
+1672575199 /home/nasiuduk/Documents/project/strukdat/MLL.h
+	<iostream>
+	"file.h"
+	"folder.h"
+
+1672574727 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
+	<iostream>
+	<stdlib.h>
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
+1672490772 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/main.cpp
 	"MLL.h"
 	<iostream>
 
-1672370223 /home/nasiuduk/Documents/project/strukdat/MLL.h
+1672492579 /home/nasiuduk/Documents/GitHub/tubes-struktur-data/MLL.h
 	<iostream>
 
-1672370131 source:/home/nasiuduk/Documents/project/strukdat/MLL.cpp
+1672492761 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/MLL.cpp
 	"MLL.h"
 	<iostream>
 	<stdlib.h>
+
+1672570145 source:/home/nasiuduk/Documents/project/strukdat/folder.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
+1672575202 /home/nasiuduk/Documents/project/strukdat/file.h
+	"folder.h"
+	<iostream>
+
+1672569989 /home/nasiuduk/Documents/project/strukdat/folder.h
+	<iostream>
+	"file.h"
+
+1672575214 source:/home/nasiuduk/Documents/project/strukdat/file.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
 
