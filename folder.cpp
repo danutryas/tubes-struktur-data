@@ -17,30 +17,43 @@ void showFolderList(folderList L) {
     if (P == nil) {
         cout << "List Folder Kosong!!!"<<endl;
     }else {
-        while (P != nil){
+        cout <<"=> Folder Name: "<< info(P).name << endl;
+        P = next(P);
+        while (P != first(L)){
             cout <<"=> Folder Name: "<< info(P).name << endl;
             P = next(P);
         }
     }
     cout << "=========================="<<endl;
 }
-void deleteFileFunc(folderList &L);
 void deleteFolderFunc(folderList &L,adrFolder &P){
     adrFolder Q = first(L);
-
     if (Q == nil) {
         cout << "Tidak terdapat Folder"<< endl;
-    }else if (next(Q) == nil){
+    }else if (next(Q) == first(L)){
         if (Q == P){
             first(L) = nil;
         }
     }else {
         adrFolder temp;
         if (Q == P){
-            first(L) = next(Q);
-            next(Q) = nil;
+            while (next(Q) != first(L)) {
+                Q = next(Q);
+            }
+            temp = first(L);
+            first(L) = next(first(L));
+            next(Q) = first(L);
+            next(temp) = nil;
+        }else if(next(P) == first(L)){
+
+            while (next(next(Q)) != first(L)){
+                Q = next(Q);
+            }
+            temp = next(Q);
+            next(Q) = first(L);
+            next(temp) = nil;
         }else {
-            while (next(Q) != nil && next(Q)!= P) {
+            while (next(Q) != first(L) && next(Q)!= P) {
                 Q = next(Q);
             }
             temp = next(Q);

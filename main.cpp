@@ -6,11 +6,6 @@ using namespace std;
 
 int main()
 {
-
-    //cout << "ass" <<endl;
-    //reRunProgram("as fuck");
-    //cout << "fuc" <<endl;
-
     fileList ListFile;folderList ListFolder;
     createFileList(ListFile);createFolderList(ListFolder);
     adrFolder cP;adrFile pP;
@@ -18,7 +13,6 @@ int main()
     string folderName;string fileName;
 
     // for testing ===
-
     folder.name = "folderA";
     folder.size = 0;
     folder.totalFile = 0;
@@ -67,12 +61,13 @@ int main()
     insertFile(ListFile,pP);
 
 
-    connectFolderFile(ListFolder,ListFile,"fileA","folderA");
     connectFolderFile(ListFolder,ListFile,"fileB","folderB");
+    connectFolderFile(ListFolder,ListFile,"fileA","folderA");
     connectFolderFile(ListFolder,ListFile,"fileC","folderA");
     connectFolderFile(ListFolder,ListFile,"fileD","folderC");
     connectFolderFile(ListFolder,ListFile,"fileE","folderA");
     connectFolderFile(ListFolder,ListFile,"fileF","folderC");
+
 
     // =====
     bool printMenu = true;
@@ -179,6 +174,7 @@ int main()
             cout << "Program 9 : Menampilkan seluruh file dari folder X" << endl;
             cout << "=================================================" << endl;
             cout << "Masukkan nama folder yang ingin ditampilkan: ";cin >> folderName;
+            showFolderList(ListFolder);
             showAllFileFromFolderX(ListFile,ListFolder,folderName);
         }
         else if (choosenMenu == 10){

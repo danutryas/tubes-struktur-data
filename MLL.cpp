@@ -10,11 +10,13 @@ void insertFolder(folderList &L, adrFolder P){
     adrFolder Q = first(L);
     if (Q == nil){
         first(L) = P;
+        next(P) = first(L);
     }else {
-        while(next(Q) != nil){
+        while(next(Q) != first(L)){
             Q = next(Q);
         }
         next(Q) = P;
+        next(P) = first(L);
     }
 };
 // 2)Menampilkan data folder X (5 poin)
@@ -40,10 +42,15 @@ void deleteFolder(fileList &pL,folderList &cL,string folderName){
 // 4)Mencari folder X (5 poin)
 adrFolder findFolder(folderList L, string folderName){
     adrFolder P = first(L);
-    while(P != nil && info(P).name != folderName){
+    if (info(P).name == folderName){
+        return P;
+    }else {
         P = next(P);
+        while(P != first(L) && info(P).name != folderName){
+            P = next(P);
+        }
+        return P;
     }
-    return P;
 };
 // 5)Menambahkan file dari folder X (5 poin)
 // void insertFileFromFolderX(fileList &L,string folderName){};
@@ -137,7 +144,7 @@ void showMostFileInFolder(fileList pL,folderList cL){
     string nameMostDegree = info(first(cL)).name;
     int countDegree = 0;
     adrFolder P = next(first(cL));
-    while(P != nil){
+    while(P != first(cL)){
         countDegree = inDegreeFolder(pL,cL,info(P).name);
         if (countDegree > mostDegree){
             mostDegree = countDegree;
@@ -154,12 +161,14 @@ void showMostFileInFolder(fileList pL,folderList cL){
 // 12)Mencari nama folder dari file Y (10 poin)
 void findFolderNameFromFileY(fileList L,string fileName){
     adrFile Q = findFile(L,fileName);
-
     if (Q != nil && folder(Q) != nil) {
         cout << "Nama folder dari file "<< fileName << ": "<< info(folder(Q)).name << endl;
-    }
-    else {
-        cout << "File tidak terhubung ke Folder"<<endl;
+    }else {
+        if (Q == nil){
+            cout << "File tidak ditemukan!!!"<<endl;
+        }else if (folder(Q) == nil){
+            cout << "File tidak terhubung ke Folder!!!"<<endl;
+        }
     }
 };
 
@@ -222,10 +231,21 @@ void clearConsole(){
 };
 void showConnection(folderList cL,fileList pL){
     adrFolder cP = first(cL);
-    adrFile pP;
-    string folderName;
+    string folderName = info(cP).name;
+    cout << "Folder " << info(cP).name << ": ";
+    adrFile pP = first(pL);
+    while(pP != nil){
+        if (folder(pP) != nil){
+            if (info(folder(pP)).name == folderName){
+                cout << info(pP).name << " - ";
+            }
+        }
+        pP = next(pP);
+    }
+    cout << endl;
 
-    while(cP != nil){
+    cP = next(cP);
+    while(cP != first(cL)){
         folderName = info(cP).name;
         cout << "Folder " << folderName << ": ";
         pP = first(pL);
