@@ -66,8 +66,6 @@ void insertFile(fileList &L, adrFile P){
     }
 };
 // 6)Menghapus file dari folder X (10 poin)
-void deleteFileFromFolderX(fileList &pL,folderList cL, string folderName){
-    adrFolder pFolder = findFolder(cL,folderName);
 
     adrFile pFile = first(pL);
     adrFile currFile;
