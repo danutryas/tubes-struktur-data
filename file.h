@@ -26,9 +26,12 @@ typedef struct fileList {
 int inDegreeFolder(fileList L,folderList folderL, string folderName);
 void showFileList(fileList L);
 
+
 adrFile newFile(file info);
 void createFileList(fileList &pL);
-
+void insertFile(fileList &L, adrFile P);
+adrFile findFile(fileList L, string fileName);
+void showFileInFolderX(fileList L, string folderName);
 // delete
 void deleteFile(fileList &L, adrFile P);
 void deleteFirstFile(fileList &L);

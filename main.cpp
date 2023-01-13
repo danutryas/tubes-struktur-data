@@ -122,12 +122,17 @@ int main()
         else if (choosenMenu == 4){
             clearConsole();
             cout << "=================================================" << endl;
-            cout << "Program 4 : Menghapus file tertentu" << endl;
+            cout << "Program 4 : Menyalin File dari folder X ke folder Y" << endl;
             cout << "=================================================" << endl;
-            showFileList(ListFile);
-            cout << "Masukkan nama folder yang ingin dihapus: ";cin >> fileName;
-            pP = findFile(ListFile,fileName);
-            deleteFile(ListFile,pP);
+            showFolderList(ListFolder);
+            cout << "=> Masukkan nama folder yang ingin diambil filenya: ";cin >> folderName;
+            showAllFileFromFolderX(ListFile,ListFolder,folderName);
+            cout << "=> Masukkan nama file yang ingin disalin: ";cin >> fileName;
+            pP = newFile(info(findFileFromFolderX(ListFile,fileName,folderName)));
+            showFolderList(ListFolder);
+            cout << "=> Masukkan nama folder tujuan: ";cin >> folderName;
+            cP = findFolder(ListFolder,folderName);
+            insertFileFromFolderX(ListFile,pP,cP);
         }
         else if (choosenMenu == 5){
             clearConsole();
@@ -173,8 +178,8 @@ int main()
             cout << "=================================================" << endl;
             cout << "Program 9 : Menampilkan seluruh file dari folder X" << endl;
             cout << "=================================================" << endl;
-            cout << "Masukkan nama folder yang ingin ditampilkan: ";cin >> folderName;
             showFolderList(ListFolder);
+            cout << "Masukkan nama folder yang ingin ditampilkan: ";cin >> folderName;
             showAllFileFromFolderX(ListFile,ListFolder,folderName);
         }
         else if (choosenMenu == 10){
@@ -184,7 +189,6 @@ int main()
             cout << "=================================================" << endl;
             showFileList(ListFile);
             cout << "Masukkan file yang ingin dicari nama foldernya: ";cin >> fileName;
-            // folderName = findFolderNameFromFileY(ListFile,fileName);
             findFolderNameFromFileY(ListFile,fileName);
         }
         else if (choosenMenu == 11){
