@@ -21,15 +21,13 @@ void deleteFolder(fileList &pL,folderList &cL,string folderName);
 // 4)Mencari folder X (5 poin)
 adrFolder findFolder(folderList L, string folderName);
 // 5)Menambahkan file dari folder X (5 poin)
-// void insertFileFromFolderX(fileList &L,string folderName);                      //
-void insertFile(fileList &L, adrFile P);
+void insertFileFromFolderX(fileList &L,adrFile pFile,adrFolder pFolder);
 // 6)Menghapus file dari folder X (10 poin)
-void deleteFileFromFolderX(fileList &pL,folderList cL, string folderName);                                                   //
+void deleteFileFromFolderX(fileList &pL,folderList cL, string folderName);
 // 7)Menampilkan seluruh file dari folder X (5 poin)
 void showAllFileFromFolderX(fileList L,folderList folderL,string folderName);
 // 8)Mencari file Y dari folder X (5 poin)
-//adrFile findFileFromFolderX(fileList &L, string fileName, string folderName);   //
-adrFile findFile(fileList L, string fileName);
+adrFile findFileFromFolderX(fileList &L, string fileName, string folderName);
 // 9)Membuat relasi antara folder X dan file Y (15 poin)
 void connectFolderFile(folderList cL,fileList &pL,string fileName, string folderName);                     //
 // 10)Menghapus relasi antara folder X dan file Y (15 poin)

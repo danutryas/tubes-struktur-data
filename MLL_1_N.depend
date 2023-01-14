@@ -17,17 +17,23 @@
 	"file.h"
 	"folder.h"
 
-1672490772 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/main.cpp
+1673645553 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/main.cpp
 	"MLL.h"
+	"file.h"
+	"folder.h"
 	<iostream>
 
-1672492579 /home/nasiuduk/Documents/GitHub/tubes-struktur-data/MLL.h
+1673645319 /home/nasiuduk/Documents/GitHub/tubes-struktur-data/MLL.h
 	<iostream>
+	"file.h"
+	"folder.h"
 
-1672492761 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/MLL.cpp
-	"MLL.h"
+1673644369 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/MLL.cpp
 	<iostream>
 	<stdlib.h>
+	"MLL.h"
+	"file.h"
+	"folder.h"
 
 1672578671 source:/home/nasiuduk/Documents/project/strukdat/folder.cpp
 	"MLL.h"
@@ -43,6 +49,24 @@
 	"file.h"
 
 1672575214 source:/home/nasiuduk/Documents/project/strukdat/file.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
+1673644648 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/file.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
+1673644718 /home/nasiuduk/Documents/GitHub/tubes-struktur-data/file.h
+	"folder.h"
+	<iostream>
+
+1673641198 /home/nasiuduk/Documents/GitHub/tubes-struktur-data/folder.h
+	<iostream>
+	"file.h"
+
+1673641198 source:/home/nasiuduk/Documents/GitHub/tubes-struktur-data/folder.cpp
 	"MLL.h"
 	"file.h"
 	"folder.h"
