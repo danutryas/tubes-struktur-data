@@ -71,3 +71,39 @@
 	"file.h"
 	"folder.h"
 
+1673662209 source:c:\users\user\documents\github\tubes-struktur-data\file.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
+1673662209 c:\users\user\documents\github\tubes-struktur-data\mll.h
+	<iostream>
+	"file.h"
+	"folder.h"
+
+1673662209 c:\users\user\documents\github\tubes-struktur-data\file.h
+	"folder.h"
+	<iostream>
+
+1672964966 c:\users\user\documents\github\tubes-struktur-data\folder.h
+	<iostream>
+	"file.h"
+
+1672964966 source:c:\users\user\documents\github\tubes-struktur-data\folder.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
+1673662209 source:c:\users\user\documents\github\tubes-struktur-data\main.cpp
+	"MLL.h"
+	"file.h"
+	"folder.h"
+	<iostream>
+
+1673662209 source:c:\users\user\documents\github\tubes-struktur-data\mll.cpp
+	<iostream>
+	<stdlib.h>
+	"MLL.h"
+	"file.h"
+	"folder.h"
+
